@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE>Jogo da Velha</TITLE>
+<Style type="text/css">
+ #placar{
+ 	margin: auto;
+ 	margin-top: 30px;
+ 	margin-bottom: 20px;
+ 	width: 252px;
+
+ }
+</Style>
+<script language="JavaScript" type="text/javascript">
+letra = "X";
+function botaoPressionado(celula){
+celulaclicada = document.getElementById(celula).innerHTML;
+if (celulaclicada == "X" || celulaclicada == "O"){
+alert("Vish meu consagrado, esse quadrado ja foi escolhido!");
+}
+else{
+document.getElementById(celula).innerHTML = letra;
+if (letra == "X"){
+letra = "O";
+}
+else{
+letra = "X";
+}}}
+function verif(){
+c11 = document.getElementById('b1').innerHTML;
+c12 = document.getElementById('b2').innerHTML;
+c13 = document.getElementById('b3').innerHTML;
+c21 = document.getElementById('b4').innerHTML;
+c22 = document.getElementById('b5').innerHTML;
+c23 = document.getElementById('b6').innerHTML;
+c31 = document.getElementById('b7').innerHTML;
+c32 = document.getElementById('b8').innerHTML;
+c33 = document.getElementById('b9').innerHTML;
+if (((c11 != '') && (c12 != '') && (c13 != '') && (c11 == c12) && (c12 == c13)) || ((c11 != '') && (c22 != '') && (c33 != '') && (c11 == c22) && (c22 == c33)) || ((c11 != '') && (c21 != '') && (c31 != '') && (c11 == c21) && (c21 == c31)) || ((c21 != '') && (c22 != '') && (c23 != '') && (c21 == c22) && (c22 == c23)) || ((c31 != '') && (c32 != '') && (c33 != '') && (c31 == c32) && (c32 == c33)) || ((c12 != '') && (c22 != '') && (c32 != '') && (c12 == c22) && (c22 == c32)) || ((c13 != '') && (c23 != '') && (c33 != '') && (c13 == c23) && (c23 == c33)) || ((c31 != '') && (c22 != '') && (c13 != '') && (c31 == c22) && (c22 == c13))){
+alert('Ai sim meu guerreiro, parabens pela vitoria!');
+novo();
+}}
+function novo(){
+for (i=1; i<4; i++){
+for (j=1; j<4; j++){
+nomecelula = 'cel' + i + j
+document.getElementById(nomecelula).innerHTML = '';
+}
+}
+}
+</SCRIPT>
+</HEAD>
+<BODY background="heheu.jpg">
+	<div id="placar">
+		<p style="float: left; margin-right: 10px;"> Jogador 1:</p>
+		<img src="x.jpg" border="0" height="50">
+	</div>
+	<div id="placar">
+        <p style="float: left; margin-right: 10px;"> Jogador 2:</p>	
+        <img src="O.jpg" border="0" height="50">	
+	</div>
+<CENTER>
+<TABLE border=1>
+<TR>
+<TD><BUTTON id="b1" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+<TD><BUTTON id="b2" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+<TD><BUTTON id="b3" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+</TR>
+<TR>
+<TD><BUTTON id="b4" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+<TD><BUTTON id="b5" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+<TD><BUTTON id="b6" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+</TR>
+<TR>
+<TD><BUTTON id="b7" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+<TD><BUTTON id="b8" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+<TD><BUTTON id="b9" style="height: 150px; width: 150px; font-size:100" onClick="botaoPressionado(this.id);verif()"></BUTTON></TD>
+</TR>
+</TABLE>
+<br>
+<br><input type="button" name="limpar" value="Novo jogo" onclick="novo();" >
+</CENTER>
+</BODY>
+</HTML>
